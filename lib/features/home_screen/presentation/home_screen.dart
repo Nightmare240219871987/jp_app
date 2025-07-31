@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jp_app/features/home_screen/domain/glassy_button.dart';
-//import 'package:jp_app/features/home_screen/domain/glassy_button.dart';
+import 'package:jp_app/features/home_screen/domain/violet_button.dart';
+import 'package:jp_app/features/home_screen/domain/violet_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,7 +10,6 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        clipBehavior: Clip.none,
         fit: StackFit.expand,
         children: [
           Positioned.fill(
@@ -143,27 +143,125 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-
           Positioned(
-            left: 30,
-            right: 20,
-            top: 240,
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Positioned(
-                  //left: 5,
-                  child: Image.asset("lib/common/assets/details/cut_card.png"),
+            top: 235,
+            left: 16,
+            right: 16,
+            child: Image.asset(
+              "lib/common/assets/details/cut_card.png",
+              fit: BoxFit.fill,
+            ),
+          ),
+          Positioned(
+            left: 32,
+            top: 251,
+            child: Text(
+              "Angi´s Yummy Burger",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 280,
+            left: 32,
+            child: SizedBox(
+              width: 130,
+              child: Text(
+                "Delish vegan burger that tastes like heaven",
+                style: TextStyle(
+                  color: Colors.white.withValues(alpha: 0.5),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
                 ),
-                Positioned(
-                  left: 16,
-                  top: 16,
-                  child: Text(
-                    "Angi´s Yummy Burger",
-                    style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 250,
+            left: 325,
+            child: Row(
+              children: [
+                Icon(Icons.star, color: Color(0xFFEA71C5), size: 18),
+                Text("4.8", style: TextStyle(color: Colors.white)),
+              ],
+            ),
+          ),
+          Positioned(
+            top: 275,
+            left: 150,
+            child: Image.asset(
+              "lib/common/assets/grafiken/burger.png",
+              scale: 1.8,
+            ),
+          ),
+          Positioned(
+            left: 32,
+            top: 325,
+            child: Row(
+              children: [
+                Icon(Icons.currency_bitcoin, color: Colors.white, size: 16),
+                Text(
+                  "13.99",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
                   ),
                 ),
               ],
+            ),
+          ),
+          Positioned(
+            top: 420,
+            left: 32,
+            child: VioletButton(content: "Add to order"),
+          ),
+          Positioned(
+            left: 16,
+            top: 560,
+            child: Text(
+              "We Recommended",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Positioned(
+            right: 0,
+            left: 16,
+            top: 600,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                spacing: 27,
+                children: [
+                  VioletCard(
+                    image: Image.asset(
+                      "lib/common/assets/grafiken/cupkake_cat.png",
+                      scale: 4,
+                    ),
+                    title: "Mogli´s Cup",
+                    content: "Strawberry ice cream",
+                    price: 8.99,
+                    likeCount: 200,
+                  ),
+                  VioletCard(
+                    image: Image.asset(
+                      "lib/common/assets/grafiken/icecream.png",
+                      scale: 4,
+                    ),
+                    title: "Balu´s Cup",
+                    content: "Pistachio ice cream",
+                    price: 8.99,
+                    likeCount: 199,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
