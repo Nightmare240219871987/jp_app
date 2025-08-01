@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jp_app/features/drawer_screen/presentation/my_bottom_sheet.dart';
 import 'package:jp_app/features/home_screen/domain/glassy_button.dart';
-import 'package:jp_app/features/home_screen/domain/violet_button.dart';
+import 'package:jp_app/common/widgets/violet_button.dart';
 import 'package:jp_app/features/home_screen/domain/violet_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -241,6 +242,18 @@ class HomeScreen extends StatelessWidget {
                 spacing: 27,
                 children: [
                   VioletCard(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        clipBehavior: Clip.none,
+                        backgroundColor: Colors.black,
+                        context: context,
+                        builder: (context) => FractionallySizedBox(
+                          heightFactor: 0.8785,
+                          child: MyBottomSheet(),
+                        ),
+                      );
+                    },
                     image: Image.asset(
                       "lib/common/assets/grafiken/cupkake_cat.png",
                       scale: 4,
@@ -251,6 +264,7 @@ class HomeScreen extends StatelessWidget {
                     likeCount: 200,
                   ),
                   VioletCard(
+                    onPressed: () {},
                     image: Image.asset(
                       "lib/common/assets/grafiken/icecream.png",
                       scale: 4,
