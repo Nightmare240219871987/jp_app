@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:jp_app/features/drawer_screen/presentation/my_bottom_sheet.dart';
 import 'package:jp_app/features/home_screen/domain/glassy_button.dart';
@@ -148,9 +149,17 @@ class HomeScreen extends StatelessWidget {
             top: 235,
             left: 16,
             right: 16,
-            child: Image.asset(
-              "lib/common/assets/details/cut_card.png",
-              fit: BoxFit.fill,
+            child: ClipRRect(
+              borderRadius: BorderRadiusGeometry.circular(32),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                child: Image.asset(
+                  "lib/common/assets/details/cut_card.png",
+                  color: Colors.grey.withValues(alpha: 0.4),
+                  colorBlendMode: BlendMode.modulate,
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
           ),
           Positioned(
